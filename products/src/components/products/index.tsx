@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import ProductsCard from './products.styled';
 
 
@@ -39,9 +40,9 @@ const ProductsList: React.FC<ProductsListProps> = ({ item }) => {
             </h4>
             <h1>
                 $ {item.price}
-                <a href={"/product/" + item.id}>
-                    VIEW DETAILS
-                </a>
+                <NavLink to={"/product/" + item.id}>
+                    <h5>VIEW DETAILS</h5>
+                </NavLink>
             </h1>
         </ProductsCard>
     );

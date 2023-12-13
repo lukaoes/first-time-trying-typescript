@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductsList from '../products';
-
+import { ProductArea, Div, Ul, Li } from '../products/products.styled';
 function Home() {
     const [cate, getCate] = useState<string[]>([])
     const api = 'https://fakestoreapi.com/products/'
@@ -29,31 +29,31 @@ function Home() {
     }
 
     return (
-        <div>
+        <Div>
             <div>
                 {cate.map((item, index) =>
-                    <ul>
-                        <li key={`${index}-miau`} onClick={() => filterCate(item)}>
+                    <Ul>
+                        <Li key={`${index}-miau`} onClick={() => filterCate(item)}>
                             {item}
-                        </li>
-                    </ul>
+                        </Li>
+                    </Ul>
                 )}
 
             </div>
             <div>
                 {loader
                     ?
-                    (<div> <img style={{ margin: '0 auto' }} src='https://miro.medium.com/v2/resize:fit:679/1*9EBHIOzhE1XfMYoKz1JcsQ.gif' alt='loader' /> </div>)
+                    (<ProductArea> <img style={{ margin: '0 auto' }} src='https://miro.medium.com/v2/resize:fit:679/1*9EBHIOzhE1XfMYoKz1JcsQ.gif' alt='loader' /> </ProductArea>)
                     :
-                    (<div>
+                    (<ProductArea>
                         {currentProducts.map((item, index) =>
                             <ProductsList key={`${index}-mamamumu`} item={item} />
                         )}
-                    </div>)
+                    </ProductArea>)
                 }
 
             </div>
-        </div>
+        </Div>
     );
 }
 
